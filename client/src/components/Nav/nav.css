@@ -1,0 +1,9 @@
+.bg-primary {
+    background: navy !important;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    margin: 0 auto;
+}
