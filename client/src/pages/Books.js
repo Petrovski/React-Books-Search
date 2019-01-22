@@ -4,7 +4,7 @@ import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 
 class Books extends Component {
   // Setting our component's initial state
@@ -12,7 +12,8 @@ class Books extends Component {
     books: [],
     title: "",
     author: "",
-    synopsis: ""
+    synopsis: "",
+    Container
   };
 
   // When the component mounts, load all books and save them to this.state.books
@@ -59,56 +60,21 @@ class Books extends Component {
     }
   };
 
+  consoleLogCheck = event => {
+    event.preventDefault();
+    this.setState({
+      Container: this.state.Conainer = "Hello World!!"
+    })
+  }
+
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Search For a Book</h1>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Search Book
-              </FormBtn>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.author}
-                onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Save Book
-              </FormBtn>
-            </form>
-          </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Books In My Library</h1>
+              <p style={{ fontSize: 80 }}>&#8595;</p>
             </Jumbotron>
             {this.state.books.length ? (
               <List>
@@ -128,6 +94,33 @@ class Books extends Component {
             ) : (
                 <h3>No Results to Display</h3>
               )}
+          </Col>
+          <Col size="md-6">
+            <Jumbotron>
+              <h1>Search For a Book</h1>
+              <Input
+                value={this.state.title}
+                onChange={this.handleInputChange}
+                name="title"
+                placeholder="Title (required)"
+              />
+              <FormBtn
+                disabled={!(this.state.author && this.state.title)}
+                onClick={this.handleFormSubmit}
+              >
+                Search Book
+              </FormBtn>
+            </Jumbotron>
+            <div className="container">
+              <h1>Book Info</h1>
+              (display results here)
+              <FormBtn
+                disabled={!(this.state.author && this.state.title)}
+                onClick={this.handleFormSubmit}
+              >
+                Save
+              </FormBtn>
+            </div>
           </Col>
         </Row>
       </Container>
