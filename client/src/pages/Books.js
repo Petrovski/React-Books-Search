@@ -76,7 +76,7 @@ class Books extends Component {
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Search Book
               </FormBtn>
             </Jumbotron>
             <form>
@@ -102,7 +102,7 @@ class Books extends Component {
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Save Book
               </FormBtn>
             </form>
           </Col>
