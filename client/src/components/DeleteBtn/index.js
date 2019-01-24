@@ -11,4 +11,12 @@ function DeleteBtn(props) {
   );
 }
 
+export function FormBtn(props) {
+  return (
+    <button {...props} style={{ marginBottom: 10 }} className="btn btn-success">
+      {props.children}
+    </button>
+  );
+}
+
 export default DeleteBtn;
